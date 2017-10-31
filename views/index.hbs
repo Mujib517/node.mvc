@@ -6,39 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Express MVC</title>
-    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="/bootstrap.css" />
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <div class="container">
-                <div class="navbar navbar-inverse">
-                    <div class="navbar-brand">My Books App</div>
-                    <ul class="navbar-nav nav">
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a href="/about">About</a>
-                        </li>
-                        <li>
-                            <a href="/books">Books</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-    </header>
+    {{>header}}
 
     <div class="container">
         {{{body}}}
     </div>
 
+    {{>footer}}
 
-    <div class="container">&copy;2017 myexpressapp.com</div>
 </body>
 
 </html>

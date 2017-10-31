@@ -1,0 +1,13 @@
+<h1>Books</h1>
+
+<div class="col-md-7">
+    {{#each books}}
+    <div class="well">
+        <h3>
+            <a href="/books/{{_id}}">{{title}}</a>
+        </h3>
+        <h3 class="text-muted">$ {{price}}</h3>
+        <span class="text-muted">{{lastUpdated}}</span>
+    </div>
+    {{/each}}
+</div>
