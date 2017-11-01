@@ -1,6 +1,12 @@
 <h1>Books</h1>
 
 <div class="col-md-7">
+    <div class="row form-group">
+        <a class="btn-danger btn" href="/books/new">Add New Book
+            <i class="glyphicon glyphicon-plus"></i>
+        </a>
+    </div>
+
     {{#each books}}
     <div class="well">
         <h3>
@@ -8,6 +14,7 @@
         </h3>
         <h3 class="text-muted">$ {{price}}</h3>
         <span class="text-muted">{{lastUpdated}}</span>
+        <span>{{relativeTime}}</span>
     </div>
     {{/each}}
 </div>
