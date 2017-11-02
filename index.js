@@ -5,12 +5,13 @@ const bodyParser = require('body-parser');
 
 const defaultRouter = require('./routes/default.router');
 const bookRouter = require('./routes/book.router');
+const userRouter = require('./routes/user.router');
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log("Server running on " + port));
+app.listen(5000, () => console.log("Server running on " + port));
 
 mongoose.connection.openUri("mongodb://admin:admin@ds145019.mlab.com:45019/mybooksdb");
 mongoose.Promise = global.Promise;
@@ -30,3 +31,4 @@ app.engine('hbs', hbs.express4({
 
 app.use('/', defaultRouter);
 app.use('/books', bookRouter);
+app.use('/user', userRouter);

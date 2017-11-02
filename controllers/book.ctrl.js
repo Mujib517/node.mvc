@@ -1,5 +1,5 @@
 const Book = require('../models/book.model');
-const Review = require('../models/book.model');
+const Review = require('../models/review.model');
 const moment = require('moment');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
                 var jsonBooks = [];
 
                 books.forEach((book) => {
-                    var jsonBook=book.toJSON();
+                    var jsonBook = book.toJSON();
                     jsonBook.relativeTime = moment(book.lastUpdated).fromNow();
                     jsonBooks.push(jsonBook);
                 });
@@ -34,6 +34,7 @@ module.exports = {
                 var jsonBook = book.toJSON();
 
                 Review.find({ bookId: jsonBook._id.toString() })
+                    .sort("-lastUpdated")
                     .exec()
                     .then(function (reviews) {
 
