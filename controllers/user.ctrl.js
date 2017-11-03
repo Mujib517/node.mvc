@@ -6,17 +6,21 @@ module.exports = {
         res.render('pages/login')
     },
 
-    login: function (req, res) {
+    login: function (username, password, done) {
 
-        User.findOne({ username: req.body.username, password: req.body.password })
+        User.findOne({ username: username, password: password })
             .exec()
             .then(function (user) {
-                if (!user) res.redirect("/user/signin");
-                else res.redirect("/books");
+                if (user) done(null, user);
+                else done("Invalid username or password");
             })
             .catch(function (err) {
-                res.redirect("/user/signin");
+                done("Invalid username or password" + err);
             });
+    },
 
+    logout: (req, res) => {
+        req.logout();
+        res.redirect("/user/signin");
     }
 }
