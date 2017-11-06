@@ -4,7 +4,7 @@ const session = require('express-session');
 const userCtrl = require('../controllers/user.ctrl');
 
 function Auth(app) {
-    app.use(session({ secret: 'secret' }));
+    app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }));
     app.use(passport.initialize());
     app.use(passport.session());
 

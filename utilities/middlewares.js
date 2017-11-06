@@ -8,6 +8,11 @@ module.exports = {
     noCache: (req, res, next) => {
         res.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
         next();
+    },
+
+    setAuthInfo: (req, res, next) => {
+        res.locals.isAuthenticated = req.isAuthenticated();
+        next();
     }
 }
 

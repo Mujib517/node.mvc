@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "MD M Rahman <mujib517@gmail.com>",
@@ -19,5 +19,8 @@
     "mongoose": "^4.12.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": "7.10.0"
   }
 }

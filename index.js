@@ -32,9 +32,13 @@ app.engine('hbs', hbs.express4({
 }));
 
 
+app.use(middlewares.setAuthInfo);
+
 app.use('/', defaultRouter);
 app.use('/user', userRouter);
 
 app.use(middlewares.isAuthenticated);
 app.use(middlewares.noCache);
+
+
 app.use('/books', bookRouter);

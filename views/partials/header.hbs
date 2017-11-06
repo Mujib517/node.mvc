@@ -16,8 +16,11 @@
 
                 </ul>
                 <div class="pull-right">
-                    <a class="btn btn-sm btn-default" href="/user/signin">Login</a>
-                    <a href="/user/signout" class="btn btn-sm btn-default">Logout</a>
+                    {{#if isAuthenticated}}
+                        <a href="/user/signout" class="btn btn-sm btn-default">Logout</a>
+                    {{else}}
+                        <a class="btn btn-sm btn-default" href="/user/signin">Login</a>
+                    {{/if}}
                 </div>
 
             </div>
