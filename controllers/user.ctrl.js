@@ -22,5 +22,25 @@ module.exports = {
     logout: (req, res) => {
         req.logout();
         res.redirect("/user/signin");
+    },
+
+    registerPage: (req, res) => {
+        res.render("pages/register");
+    },
+    register: (req, res) => {
+
+        var user = new User(req.body);
+
+        user.save(function (err) {
+            if (!err) {
+                res.locals.isSaveSuccess = true;
+                res.render("pages/register");
+            }
+            else {
+                res.render("pages/error", { message: "Failed to register. try again" });
+            }
+        })
+
+
     }
 }
