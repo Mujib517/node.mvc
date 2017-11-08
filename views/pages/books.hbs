@@ -1,3 +1,11 @@
+<script>
+    function confirm() {
+        var result = confirm("are you sure you want to delete?");
+        return result;
+    }
+</script>
+
+
 <h1>Books</h1>
 
 <div class="col-md-7">
@@ -15,6 +23,10 @@
         <h3 class="text-muted">$ {{price}}</h3>
         <span class="text-muted">{{lastUpdated}}</span>
         <span>{{relativeTime}}</span>
+        <form method="POST" action="/books/delete/{{_id}}">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+
     </div>
     {{/each}}
 </div>

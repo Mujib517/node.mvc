@@ -63,5 +63,13 @@ module.exports = {
             if (!err) res.redirect('/books'); //route
             else res.render("pages/error"); //page
         });
+    },
+
+    delete: (req, res) => {
+        var bookId = req.params.id;
+        Book.findByIdAndRemove(bookId, function (err) {
+            if (!err) res.redirect("/books");
+            else res.render("pages/error");
+        });
     }
 }

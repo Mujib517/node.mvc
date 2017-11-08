@@ -8,6 +8,7 @@ router.get('/', bookCtrl.get);
 router.get('/new', bookCtrl.new);
 router.post('/new', bookCtrl.save);
 router.get('/:id', bookCtrl.getById);
+router.post("/delete/:id", bookCtrl.delete);
 router.post('/reviews/new', reviewCtrl.save);
 
 
